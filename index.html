@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vigilia — Forum</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" id="brand-link">Vigilia</a>
+      <nav>
+        <button class="button ghost" id="auth-button">Connexion</button>
+        <button class="button" id="new-topic-button" hidden>Nouveau sujet</button>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <h2>Catégories</h2>
+        <div id="categories"></div>
+      </aside>
+
+      <section class="content">
+        <div class="toolbar">
+          <h1 id="view-title">Tous les sujets</h1>
+          <input id="search" type="search" placeholder="Rechercher un sujet…" aria-label="Rechercher" />
+        </div>
+        <div id="topic-list" class="topic-list"></div>
+        <article id="topic-view" hidden></article>
+      </section>
+    </main>
+
+    <dialog id="auth-dialog">
+      <form id="auth-form" method="dialog">
+        <h2 id="auth-title">Connexion</h2>
+        <label>Pseudo<input name="username" autocomplete="username" required /></label>
+        <label>Mot de passe<input name="password" type="password" autocomplete="current-password" required /></label>
+        <p id="auth-error" class="error"></p>
+        <div class="actions">
+          <button class="button ghost" value="cancel">Annuler</button>
+          <button class="button" id="auth-submit" value="default">Se connecter</button>
+        </div>
+        <button type="button" class="text-button" id="auth-switch">Créer un compte</button>
+      </form>
+    </dialog>
+
+    <dialog id="topic-dialog">
+      <form id="topic-form" method="dialog">
+        <h2 id="topic-dialog-title">Nouveau sujet</h2>
+        <label>Titre<input name="title" maxlength="120" required /></label>
+        <label>Catégorie<select name="categoryId" id="topic-category" required></select></label>
+        <label>Message<textarea name="content" rows="6" maxlength="5000" required></textarea></label>
+        <div class="actions">
+          <button class="button ghost" value="cancel">Annuler</button>
+          <button class="button" value="default">Publier</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
